@@ -1,5 +1,5 @@
 {% set name = "glib-networking" %}
-{% set version = "2.64.3" %}
+{% set version = "2.66.0" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 937a06b124052813bfc0b0b86bff42016ff01067582e1aca65bb6dbe0845a168
+  sha256: c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -34,6 +34,8 @@ test:
     - test -f ${PREFIX}/lib/gio/modules/libgiognutls.so                   # [unix]
     - test -f ${PREFIX}/lib/gio/modules/libgioopenssl.so                  # [unix]
     - if not exist %LIBRARY_LIB%\\gio\\modules\\gioopenssl.dll exit 1     # [win]
+  downstreams:
+    - libsoup
 
 about:
   home: https://gitlab.gnome.org/GNOME/glib-networking
