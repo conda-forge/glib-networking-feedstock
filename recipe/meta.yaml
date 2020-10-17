@@ -20,12 +20,12 @@ requirements:
     - ninja
     - pkg-config
   host:
-    - glib >=2.63.0
+    - glib
     - gnutls  # [unix]
     - openssl
   run:
     - gettext
-    - glib >=2.63.0
+    - glib
     - gnutls  # [unix]
     - openssl
 
