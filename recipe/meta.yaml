@@ -25,6 +25,8 @@ requirements:
     - openssl
   run:
     - gettext
+    # The post-link scripts need glib
+    - glib
     - gnutls  # [unix]
     - openssl
 
