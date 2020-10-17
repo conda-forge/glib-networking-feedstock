@@ -5,11 +5,9 @@ Home: https://gitlab.gnome.org/GNOME/glib-networking
 
 Package license: LGPL-2.1-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glib-networking-feedstock/blob/master/LICENSE.txt)
 
 Summary: Network related modules for glib
-
-
 
 Current build status
 ====================
