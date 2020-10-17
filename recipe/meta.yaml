@@ -25,7 +25,6 @@ requirements:
     - openssl
   run:
     - gettext
-    - glib
     - gnutls  # [unix]
     - openssl
 
