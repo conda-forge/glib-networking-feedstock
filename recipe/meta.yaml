@@ -11,7 +11,7 @@ source:
   sha256: c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,12 +20,13 @@ requirements:
     - ninja
     - pkg-config
   host:
-    - glib >=2.63.0
+    - glib
     - gnutls  # [unix]
     - openssl
   run:
     - gettext
-    - glib >=2.63.0
+    # The post-link scripts need glib
+    - glib
     - gnutls  # [unix]
     - openssl
 
