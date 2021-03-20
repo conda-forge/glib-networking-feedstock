@@ -1,5 +1,5 @@
 {% set name = "glib-networking" %}
-{% set version = "2.66.0" %}
+{% set version = "2.68.0" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099
+  sha256: 0b235e85ad26b3c0d12255d0963c460e5a639c4722f78e2a03e969e224b29f6e
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -21,18 +21,15 @@ requirements:
     - pkg-config
   host:
     - glib
-    - gnutls  # [unix]
     - openssl
   run:
     - gettext
     # The post-link scripts need glib
-    - glib
-    - gnutls  # [unix]
+    - glib  >=2.68.0
     - openssl
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/gio/modules/libgiognutls.so                   # [unix]
     - test -f ${PREFIX}/lib/gio/modules/libgioopenssl.so                  # [unix]
     - if not exist %LIBRARY_LIB%\\gio\\modules\\gioopenssl.dll exit 1     # [win]
   downstreams:
