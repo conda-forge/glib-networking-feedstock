@@ -10,6 +10,10 @@ set "LIBRARY_PREFIX_M=%LIBRARY_PREFIX:\=/%"
 :: unset CMAKE_PREFIX_PATH to avoid system Cmake from 'helping' out in finding OpenSSL
 set "CMAKE_PREFIX_PATH="
 
+pkg-config --cflags glib-2.0
+pkg-config --cflags gio-2.0
+if errorlevel 1 exit 1
+
 meson setup builddir --wrap-mode=nofallback --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dopenssl=enabled
 if errorlevel 1 exit 1
 
