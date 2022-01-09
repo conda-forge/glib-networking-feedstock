@@ -24,6 +24,7 @@ requirements:
     - gettext  # [osx]
     - glib
     - openssl
+    - zlib
   run:
     - gettext
     # The post-link scripts need glib
