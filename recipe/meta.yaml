@@ -1,5 +1,5 @@
 {% set name = "glib-networking" %}
-{% set version = "2.68.2" %}
+{% set version = "2.68.3" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 535ebc054ef697db56a4fffed91bc0e11c8ee1c9acb48aad28c8e1d5c3d5994f
+  sha256: d5e34ce6265e44537ffb6d7cccd3fedd0473bd39bf2a1d8a75272bbd598337b4
 
 build:
   number: 0
