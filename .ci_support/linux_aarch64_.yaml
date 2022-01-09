@@ -15,7 +15,7 @@ channel_targets:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 glib:
-- 2.68.4
+- '2.68'
 openssl:
 - 1.1.1
 target_platform:
