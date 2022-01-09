@@ -16,10 +16,12 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - gettext     # [osx and (build_platform != target_platform)]
     - meson
     - ninja
     - pkg-config
   host:
+    - gettext  # [osx]
     - glib
     - openssl
   run:
