@@ -1,0 +1,31 @@
+From 37d7c6af7cd54e440cf92547714ce4d47b5b6550 Mon Sep 17 00:00:00 2001
+From: Daniel Kolesa <daniel@octaforge.org>
+Date: Fri, 7 Jan 2022 06:47:04 +0100
+Subject: [PATCH] openssl: explicitly NULL initialize PKCS8_PRIV_KEY_INFO
+
+Otherwise, PKCS8_PRIV_KEY_INFO_free will be called on an
+uninitialized value if `!openssl->key` is true.
+
+This results in WebKit TLS being broken at least with OpenSSL 3.x
+and libsoup3.
+
+Part-of: <https://gitlab.gnome.org/GNOME/glib-networking/-/merge_requests/201>
+---
+ tls/openssl/gtlscertificate-openssl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tls/openssl/gtlscertificate-openssl.c b/tls/openssl/gtlscertificate-openssl.c
+index 2e3148c2..0bc7ea66 100644
+--- a/tls/openssl/gtlscertificate-openssl.c
++++ b/tls/openssl/gtlscertificate-openssl.c
+@@ -144,7 +144,7 @@ export_privkey_to_der (GTlsCertificateOpenssl  *openssl,
+                        guint8                 **output_data,
+                        long                    *output_size)
+ {
+-  PKCS8_PRIV_KEY_INFO *pkcs8;
++  PKCS8_PRIV_KEY_INFO *pkcs8 = NULL;
+   BIO *bio = NULL;
+   const guint8 *data;
+ 
+-- 
+GitLab
