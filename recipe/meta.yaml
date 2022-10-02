@@ -28,7 +28,7 @@ requirements:
   run:
     - gettext
     # The post-link scripts need glib
-    - glib  >=2.70.0
+    - pin_compatible('glib')
     - openssl
 
 test:
