@@ -28,7 +28,7 @@ requirements:
   run:
     - gettext
     # The post-link scripts need glib
-    - pin_compatible('glib')
+    - {{ pin_compatible('glib') }}
     - openssl
 
 test:
