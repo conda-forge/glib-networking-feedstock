@@ -6,3 +6,5 @@ provider:
   linux_ppc64le: default
 test_on_native_only: true
 build_with_mambabuild: false
+conda_build:
+  pkg_format: '2'
