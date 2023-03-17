@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,10 +13,7 @@ glib:
 macos_machine:
 - arm64-apple-darwin20.0.0
 openssl:
-- 1.1.1
-pin_run_as_build:
-  zlib:
-    max_pin: x.x
+- '3'
 target_platform:
 - osx-arm64
 zlib:
