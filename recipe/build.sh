@@ -17,6 +17,9 @@ export CPPFLAGS="-D_BSD_SOURCE=1 ${CPPFLAGS}"
 meson setup builddir \
 	 ${MESON_ARGS} \
 	-Dopenssl=enabled \
-	-Dgnutls=disabled
+	-Dgnutls=disabled \
+	-Dlibproxy=disabled \
+	-Dgnome_proxy=disabled \
+	--wrap-mode=nofallback
 ninja -v -C builddir -j ${CPU_COUNT}
 ninja -C builddir install -j ${CPU_COUNT}

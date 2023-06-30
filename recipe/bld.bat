@@ -10,7 +10,7 @@ set "LIBRARY_PREFIX_M=%LIBRARY_PREFIX:\=/%"
 :: unset CMAKE_PREFIX_PATH to avoid system Cmake from 'helping' out in finding OpenSSL
 set "CMAKE_PREFIX_PATH="
 
-meson setup builddir --wrap-mode=nofallback --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dopenssl=enabled
+meson setup builddir --wrap-mode=nofallback --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dopenssl=enabled -Dlibproxy=disabled -Dgnome_proxy=disabled
 if errorlevel 1 exit 1
 
 ninja -v -C builddir -j %CPU_COUNT%
