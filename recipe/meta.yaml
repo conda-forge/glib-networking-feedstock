@@ -12,6 +12,9 @@ source:
 
 build:
   number: 0
+  run_exports:
+    # Following glib's pinnings
+    - {{ pin_subpackage('glib-networking') }}
 
 requirements:
   build:
@@ -26,10 +29,8 @@ requirements:
     - openssl
     - zlib
   run:
-    - gettext
     # The post-link scripts need glib
-    - glib  >=2.74.0
-    - openssl
+    - glib  {{ version_majmin }}
 
 test:
   commands:
