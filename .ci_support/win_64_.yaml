@@ -6,6 +6,8 @@ channel_targets:
 - conda-forge main
 glib:
 - '2.74'
+libsoup:
+- '3'
 openssl:
 - '3'
 target_platform:
