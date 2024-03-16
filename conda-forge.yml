@@ -4,7 +4,7 @@ conda_forge_output_validation: true
 provider:
   linux_aarch64: azure
   linux_ppc64le: default
-test_on_native_only: true
 build_with_mambabuild: false
 conda_build:
   pkg_format: '2'
+test: native_and_emulated
