@@ -1,4 +1,2 @@
-glib:
-  - '2.74'
 c_stdlib_version:          # [osx and x86_64]
   - "10.12"                # [osx and x86_64]
