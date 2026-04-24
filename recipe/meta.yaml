@@ -1,21 +1,24 @@
-{% set name = "glib-networking" %}
-{% set version = "2.80.0" %}
+{% set version = "2.80.1" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
-  name: {{ name|lower }}
+  name: glib-networking
   version: {{ version }}
 
 source:
-  url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: d8f4f1aab213179ae3351617b59dab5de6bcc9e785021eee178998ebd4bb3acf
+  url: https://download.gnome.org/sources/glib-networking/{{ version_majmin }}/glib-networking-{{ version }}.tar.xz
+  sha256: b80e2874157cd55071f1b6710fa0b911d5ac5de106a9ee2a4c9c7bee61782f8e
 
 build:
   number: 0
+  run_exports:
+    # Following glib's pinnings
+    - {{ pin_subpackage('glib-networking') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - gettext     # [osx and (build_platform != target_platform)]
     - meson
     - ninja
@@ -28,7 +31,8 @@ requirements:
   run:
     - gettext
     # The post-link scripts need glib
-    - glib  >=2.74.0
+    # The glib run_export should help us constrain the version
+    - glib
     - openssl
 
 test:
