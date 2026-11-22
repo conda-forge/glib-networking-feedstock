@@ -11,11 +11,12 @@ source:
   sha256: d8f4f1aab213179ae3351617b59dab5de6bcc9e785021eee178998ebd4bb3acf
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - gettext     # [osx and (build_platform != target_platform)]
     - meson
     - ninja
